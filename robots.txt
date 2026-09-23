@@ -1,6 +1,5 @@
 User-agent: *
 Allow: /
-Disallow: /recruit/
 
 # AI検索・学習クローラー（明示的に許可）
 User-agent: GPTBot
