@@ -175,6 +175,13 @@ main{margin-left:var(--sw)}
   letter-spacing:.12em;margin-right:.55em;opacity:.85}
 .row .fix{font-family:var(--sans);font-weight:500;font-size:clamp(1rem,1.6vw,1.18rem);
   color:var(--ink);font-variant-numeric:tabular-nums;white-space:nowrap;line-height:1.45}
+.mtabs{display:flex;gap:.5rem;margin-top:clamp(1.4rem,3vw,2rem);flex-wrap:wrap}
+.mtab{font-family:var(--sans);font-size:clamp(.8rem,1.1vw,.9rem);letter-spacing:.14em;text-transform:uppercase;
+  padding:.7em 1.8em;border-radius:999px;border:1.5px solid var(--ink);background:transparent;color:var(--ink);cursor:pointer;
+  transition:background .25s ease,color .25s ease}
+.mtab[aria-selected="true"]{background:var(--ink);color:#fff}
+.mtab:focus-visible{outline:2px solid var(--coral-deep);outline-offset:3px}
+.row .mem.rep em{color:var(--coral-deep)}
 .row--sig{background:var(--paper);border:1px solid var(--line);border-radius:var(--round);
   padding:clamp(1.3rem,2.8vw,1.9rem) clamp(1.3rem,2.8vw,1.9rem);margin-top:1rem}
 .row--sig .nm{font-weight:500;font-size:clamp(1.02rem,2vw,1.3rem)}
@@ -540,6 +547,13 @@ fill="currentColor" stroke="none">
     <h2 class="lead rv" style="font-size:clamp(1.8rem,4vw,3rem);margin-top:.5rem">price.<span class="sr-only">｜表参道の眉毛サロン HACO i のメニュー・料金</span></h2>
     <p class="small rv" style="margin-top:.6rem">メニュー・料金</p>
 
+    <div class="mtabs rv" role="tablist" aria-label="メニューの種類">
+      <button class="mtab" role="tab" id="tab-eye" aria-controls="menu-eye" aria-selected="true">Eye</button>
+      <button class="mtab" role="tab" id="tab-nail" aria-controls="menu-nail" aria-selected="false" tabindex="-1">Nail</button>
+    </div>
+
+    <div class="tabpanel" id="menu-eye" role="tabpanel" aria-labelledby="tab-eye">
+
     <div class="grp">
       <span class="kicker rv">Brow</span>
       <div class="row rv">
@@ -644,6 +658,90 @@ fill="currentColor" stroke="none">
     ※ MEMBER価格は2回目以降、LINEからのご予約のみに適用されます。LINEのご案内は、初回ご来店時にお渡ししています。<br>
     ※ KAORI をご指名の場合、上記料金に指名料 +¥2,000 を申し受けます（全メニュー一律）。<br>
     ※ オプション・オフメニューは、指名料の対象外です。</p>
+    </div>
+
+    <div class="tabpanel" id="menu-nail" role="tabpanel" aria-labelledby="tab-nail" hidden>
+    <div class="grp">
+      <span class="kicker">Gel — Hand</span>
+      <div class="row">
+        <span class="nm">One Color</span><span class="ds">ワンカラー ／ 60分</span>
+        <div class="prices"><span class="reg">¥5,500</span><span class="mem rep"><em>4週間以内</em>¥5,000</span></div>
+      </div>
+      <div class="row">
+        <span class="nm">Magnet</span><span class="ds">マグネット ／ 60分</span>
+        <div class="prices"><span class="reg">¥6,500</span><span class="mem rep"><em>4週間以内</em>¥6,000</span></div>
+      </div>
+      <div class="row">
+        <span class="nm">Aurora</span><span class="ds">オーロラ ／ 60分</span>
+        <div class="prices"><span class="reg">¥6,500</span><span class="mem rep"><em>4週間以内</em>¥6,000</span></div>
+      </div>
+      <div class="row">
+        <span class="nm">Mirror</span><span class="ds">ミラー ／ 60分</span>
+        <div class="prices"><span class="reg">¥6,500</span><span class="mem rep"><em>4週間以内</em>¥6,000</span></div>
+      </div>
+      <div class="row">
+        <span class="nm">Gradation</span><span class="ds">グラデーション ／ 60分</span>
+        <div class="prices"><span class="reg">¥6,800</span><span class="mem rep"><em>4週間以内</em>¥6,300</span></div>
+      </div>
+      <div class="row">
+        <span class="nm">Simple Art</span><span class="ds">シンプルアート ／ 90分<br>※ デザインはInstagramのギャラリーからお選びいただけます。</span>
+        <div class="prices"><span class="reg">¥7,000</span><span class="mem rep"><em>4週間以内</em>¥6,500</span></div>
+      </div>
+    </div>
+
+    <div class="grp">
+      <span class="kicker">Art — KURUMI</span>
+      <div class="row">
+        <span class="nm">Simple Art</span><span class="ds">シンプルアート（KURUMI指名）／ 90分</span>
+        <div class="prices"><span class="fix">¥10,200</span></div>
+      </div>
+      <div class="row">
+        <span class="nm">Design Art</span><span class="ds">デザインアート（KURUMI指名）／ 120分</span>
+        <div class="prices"><span class="fix">¥13,200</span></div>
+      </div>
+      <div class="row">
+        <span class="nm">Design Art +</span><span class="ds">デザインアート＋（KURUMI指名）／ 150分</span>
+        <div class="prices"><span class="fix">¥15,600</span></div>
+      </div>
+    </div>
+
+    <div class="grp">
+      <span class="kicker">Option</span>
+      <div class="row">
+        <span class="nm">One Point Parts</span><span class="ds">ワンポイントパーツ（1個）</span>
+        <div class="prices"><span class="fix">+¥300</span></div>
+      </div>
+      <div class="row">
+        <span class="nm">Parts Pack 4</span><span class="ds">パーツパック（最大4本・お好みのパーツ／ストーン）</span>
+        <div class="prices"><span class="fix">+¥1,200</span></div>
+      </div>
+      <div class="row">
+        <span class="nm">Para Gel</span><span class="ds">パラジェルへの変更</span>
+        <div class="prices"><span class="fix">+¥1,000</span></div>
+      </div>
+    </div>
+
+    <div class="grp">
+      <span class="kicker">Off</span>
+      <div class="row">
+        <span class="nm">Off — In-salon</span><span class="ds">自店オフ（当店で施術したジェルの付け替え）</span>
+        <div class="prices"><span class="fix">¥1,000</span></div>
+      </div>
+      <div class="row">
+        <span class="nm">Off — Other salon</span><span class="ds">他店オフ（他店で施術したものを外す場合）</span>
+        <div class="prices"><span class="fix">¥1,500</span></div>
+      </div>
+      <div class="row">
+        <span class="nm">First Visit Off</span><span class="ds">初回、または前回から1か月以内の付け替えオフ</span>
+        <div class="prices"><span class="fix">¥0</span></div>
+      </div>
+    </div>
+
+    <p class="small" style="margin-top:1.6rem">※ 「4週間以内」は、前回のご来店日から4週間以内にご予約いただいた場合の料金です。<br>
+    ※ スタッフ指名料：MOMOKA +¥500、KURUMI +¥2,000（KURUMI指名のアートメニューは指名料込みの価格です）。<br>
+    ※ フィルインをご希望の方は、MOMOKA または KURUMI をご指名ください。<br>
+    ※ オプション・オフメニューは、指名料・4週間以内料金の対象外です。</p>
+    </div>
   </section>
 
   <!-- 06 SALON -->
@@ -837,6 +935,23 @@ fill="currentColor" stroke="none">
   document.querySelectorAll('.rv').forEach(function(el,i){
     el.style.transitionDelay=(Math.min(i%4,3)*80)+'ms'; io.observe(el);
   });
+})();
+(function(){
+  var tabs=[].slice.call(document.querySelectorAll('.mtab'));
+  function show(t){
+    tabs.forEach(function(b){
+      var on=b===t, p=document.getElementById(b.getAttribute('aria-controls'));
+      b.setAttribute('aria-selected',on?'true':'false'); b.tabIndex=on?0:-1; p.hidden=!on;
+      if(on){ p.querySelectorAll('.rv').forEach(function(el){el.classList.add('on');}); }
+    });
+  }
+  tabs.forEach(function(b,i){
+    b.addEventListener('click',function(){show(b);});
+    b.addEventListener('keydown',function(e){
+      if(e.key==='ArrowRight'||e.key==='ArrowLeft'){var n=tabs[(i+(e.key==='ArrowRight'?1:tabs.length-1))%tabs.length];show(n);n.focus();e.preventDefault();}
+    });
+  });
+  if(location.hash==='#nail'){var n=document.getElementById('tab-nail'); if(n) show(n);}
 })();
 </script>
 </body>
