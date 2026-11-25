@@ -183,6 +183,12 @@ main{margin-left:var(--sw)}
 /* ---------- faq ---------- */
 .sr-only{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;
   clip:rect(0 0 0 0);white-space:nowrap;border:0}
+.mtabs{display:flex;gap:.5rem;margin-top:clamp(1.8rem,4vw,2.6rem);flex-wrap:wrap}
+.mtab{font-family:var(--sans);font-size:clamp(.8rem,1.1vw,.9rem);letter-spacing:.14em;text-transform:uppercase;
+  padding:.7em 1.8em;border-radius:999px;border:1.5px solid var(--ink);background:transparent;color:var(--ink);cursor:pointer;
+  transition:background .25s ease,color .25s ease}
+.mtab[aria-selected="true"]{background:var(--ink);color:#fff}
+.mtab:focus-visible{outline:2px solid var(--coral-deep);outline-offset:3px}
 .faq{border-top:1px solid var(--line)}
 .faq .list{margin-top:clamp(1.8rem,4vw,2.6rem);max-width:52rem}
 .faq .qa{padding:clamp(1.2rem,2.6vw,1.7rem) 0;border-bottom:1px dashed var(--line)}
@@ -375,7 +381,7 @@ footer nav a:hover{color:var(--ink)}
       "name": "指名料はかかりますか？",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "スタイリスト KAORI をご指名の場合、メニュー料金に指名料 +¥2,000 を申し受けます。メニューを問わず一律です。オプションメニューとオフメニューは指名料の対象外です。"
+        "text": "アイは KAORI をご指名の場合、指名料 +¥2,000 を申し受けます（メニューを問わず一律）。ネイルは MOMOKA が +¥500、KURUMI が +¥2,000 です（KURUMI指名のアートメニューは指名料込みの価格です）。オプションメニューとオフメニューは指名料の対象外です。"
       }
     },
     {
@@ -416,6 +422,22 @@ footer nav a:hover{color:var(--ink)}
       "acceptedAnswer": {
         "@type": "Answer",
         "text": "アイ（眉・まつげ）とネイルの同時施術は、現在準備中です。開始の際はこのサイトと Instagram でお知らせします。"
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "フィルインはありますか？",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "はい、フィルイン（ベースのジェルを残して付け替える方法）に対応しています。フィルインをご希望の方は、MOMOKA または KURUMI をご指名のうえご予約ください。"
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "パラジェルはありますか？",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "はい、パラジェルをお取り扱いしています。各ジェルメニューに +¥1,000 でパラジェルへ変更できます。ご予約時、または施術の際にお申し付けください。"
       }
     },
     {
@@ -527,9 +549,15 @@ fill="currentColor" stroke="none">
     <p class="kicker rv">FAQ</p>
     <h1 class="lead rv" style="font-size:clamp(1.8rem,4vw,3rem);margin-top:.5rem">questions.<span class="sr-only">｜表参道の眉毛サロン HACO i によくあるご質問</span></h1>
     <p class="small rv" style="margin-top:.6rem">よくあるご質問</p>
-    <p class="bd rv" style="margin-top:1.2rem">眉毛サロンが初めての方から、よくいただくご質問をまとめました。<br>
+    <p class="bd rv" style="margin-top:1.2rem">アイ（眉・まつげ）とネイルについて、よくいただくご質問をまとめました。<br>
     ここにない内容は、<a href="mailto:info@hacoi.jp">info@hacoi.jp</a> までお気軽にお問い合わせください。</p>
 
+    <div class="mtabs rv" role="tablist" aria-label="質問の種類">
+      <button class="mtab" role="tab" id="tab-eye" aria-controls="faq-eye" aria-selected="true">Eye</button>
+      <button class="mtab" role="tab" id="tab-nail" aria-controls="faq-nail" aria-selected="false" tabindex="-1">Nail</button>
+    </div>
+
+    <div class="tabpanel" id="faq-eye" role="tabpanel" aria-labelledby="tab-eye">
     <div class="grp" style="margin-top:clamp(2.6rem,5vw,3.6rem)">
       <span class="kicker rv" style="display:block;padding-bottom:.9rem;border-bottom:1px solid var(--ink)">Brow<span class="sr-only">｜眉毛サロンについて</span></span>
       <p class="small rv" style="margin-top:.9rem">眉毛サロンについて</p>
@@ -596,6 +624,25 @@ fill="currentColor" stroke="none">
       </div>
     </div>
 
+    </div>
+
+    <div class="tabpanel" id="faq-nail" role="tabpanel" aria-labelledby="tab-nail" hidden>
+    <div class="grp" style="margin-top:clamp(2.6rem,5vw,3.6rem)">
+      <span class="kicker rv" style="display:block;padding-bottom:.9rem;border-bottom:1px solid var(--ink)">Nail<span class="sr-only">｜ネイルについて</span></span>
+      <p class="small rv" style="margin-top:.9rem">ネイルについて</p>
+      <div class="list" style="margin-top:.4rem">
+        <div class="qa rv">
+          <p class="q"><span class="m">Q</span><span>フィルインはありますか？</span></p>
+          <p class="a"><span class="m">A</span><span>はい、フィルイン（ベースのジェルを残して付け替える方法）に対応しています。フィルインをご希望の方は、MOMOKA または KURUMI をご指名のうえご予約ください。</span></p>
+        </div>
+        <div class="qa rv">
+          <p class="q"><span class="m">Q</span><span>パラジェルはありますか？</span></p>
+          <p class="a"><span class="m">A</span><span>はい、パラジェルをお取り扱いしています。各ジェルメニューに +¥1,000 でパラジェルへ変更できます。ご予約時、または施術の際にお申し付けください。</span></p>
+        </div>
+      </div>
+    </div>
+    </div>
+
     <div class="grp" style="margin-top:clamp(2.6rem,5vw,3.6rem)">
       <span class="kicker rv" style="display:block;padding-bottom:.9rem;border-bottom:1px solid var(--ink)">Price<span class="sr-only">｜ご予約・料金について</span></span>
       <p class="small rv" style="margin-top:.9rem">ご予約・料金について</p>
@@ -606,7 +653,7 @@ fill="currentColor" stroke="none">
         </div>
         <div class="qa rv">
           <p class="q"><span class="m">Q</span><span>指名料はかかりますか？</span></p>
-          <p class="a"><span class="m">A</span><span>スタイリスト KAORI をご指名の場合、メニュー料金に指名料 +¥2,000 を申し受けます。メニューを問わず一律です。オプションメニューとオフメニューは指名料の対象外です。</span></p>
+          <p class="a"><span class="m">A</span><span>アイは KAORI をご指名の場合、指名料 +¥2,000 を申し受けます（メニューを問わず一律）。ネイルは MOMOKA が +¥500、KURUMI が +¥2,000 です（KURUMI指名のアートメニューは指名料込みの価格です）。オプションメニューとオフメニューは指名料の対象外です。</span></p>
         </div>
         <div class="qa rv">
           <p class="q"><span class="m">Q</span><span>アイブロウとまつげ（ラッシュ）の同時施術はできますか？</span></p>
@@ -783,6 +830,23 @@ fill="currentColor" stroke="none">
   document.querySelectorAll('.rv').forEach(function(el,i){
     el.style.transitionDelay=(Math.min(i%4,3)*80)+'ms'; io.observe(el);
   });
+})();
+(function(){
+  var tabs=[].slice.call(document.querySelectorAll('.mtab'));
+  function show(t){
+    tabs.forEach(function(b){
+      var on=b===t, p=document.getElementById(b.getAttribute('aria-controls'));
+      b.setAttribute('aria-selected',on?'true':'false'); b.tabIndex=on?0:-1; p.hidden=!on;
+      if(on){ p.querySelectorAll('.rv').forEach(function(el){el.classList.add('on');}); }
+    });
+  }
+  tabs.forEach(function(b,i){
+    b.addEventListener('click',function(){show(b);});
+    b.addEventListener('keydown',function(e){
+      if(e.key==='ArrowRight'||e.key==='ArrowLeft'){var n=tabs[(i+(e.key==='ArrowRight'?1:tabs.length-1))%tabs.length];show(n);n.focus();e.preventDefault();}
+    });
+  });
+  if(location.hash==='#nail'){var n=document.getElementById('tab-nail'); if(n) show(n);}
 })();
 </script>
 </body>
